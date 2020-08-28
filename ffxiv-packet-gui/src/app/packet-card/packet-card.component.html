@@ -1,0 +1,92 @@
+<mat-expansion-panel class="packet-card">
+    <mat-expansion-panel-header class="card-header">
+        <span>{{ packet.packet.type }}</span>
+        <span>{{ packet.packet.operation }}</span>
+        <span>{{ timestamp | date: 'medium' }}</span>
+    </mat-expansion-panel-header>
+    <div class="member">
+        <div class="label">
+            <mat-label>TYPE</mat-label>
+        </div>
+        <span>{{ packet.packet.type }}</span>
+    </div>
+    <div class="member">
+        <div class="label">
+            <mat-label>CONNECTION</mat-label>
+        </div>
+        <span>{{ packet.packet.connection }}</span>
+    </div>
+    <div class="member">
+        <div class="label">
+            <mat-label>OPERATION</mat-label>
+        </div>
+        <span>{{ packet.packet.operation }}</span>
+    </div>
+    <div class="member">
+        <div class="label">
+            <mat-label>EPOCH</mat-label>
+        </div>
+        <span>{{ timestamp }}</span>
+    </div>
+    <div class="member">
+        <div class="label">
+            <mat-label>SIZE</mat-label>
+        </div>
+        <span>{{ packet.packet.packetSize }}</span>
+    </div>
+    <div class="member">
+        <div class="label">
+            <mat-label>SEGMENT TYPE</mat-label>
+        </div>
+        <span>{{ packet.packet.segmentType }}</span>
+    </div>
+    <div class="member-no-flex overflow">
+        <div class="label">
+            <mat-label>DATA</mat-label>
+        </div>
+        <table class="data-table">
+            <tbody>
+                <tr>
+                    <td class="row-name">Uint8</td>
+                    <td *ngFor="let item of packet.packet.data">
+                        {{ item }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-name">Uint16</td>
+                    <td *ngFor="let item of packet.packet.dataUint16">
+                        {{ item }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-name">Uint32</td>
+                    <td *ngFor="let item of packet.packet.dataUint32">
+                        {{ item }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-name">Int16</td>
+                    <td *ngFor="let item of packet.packet.dataInt16">
+                        {{ item }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-name">Int32</td>
+                    <td *ngFor="let item of packet.packet.dataInt32">
+                        {{ item }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-name">String</td>
+                    <td *ngFor="let item of dataChar">
+                        {{ item }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-name">Full String</td>
+                    <td>{{ packet.packet.dataString }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-expansion-panel>
