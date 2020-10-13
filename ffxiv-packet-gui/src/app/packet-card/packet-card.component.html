@@ -48,31 +48,31 @@
             <tbody>
                 <tr>
                     <td class="row-name">Uint8</td>
-                    <td *ngFor="let item of packet.packet.data">
+                    <td *ngFor="let item of packet.packet.data" [ngClass]="{ 'highlight': shouldHighlightCell(item) }">
                         {{ item }}
                     </td>
                 </tr>
                 <tr>
                     <td class="row-name">Uint16</td>
-                    <td *ngFor="let item of packet.packet.dataUint16">
+                    <td *ngFor="let item of packet.packet.dataUint16" [ngClass]="{ 'highlight': shouldHighlightCell(item) }">
                         {{ item }}
                     </td>
                 </tr>
                 <tr>
                     <td class="row-name">Uint32</td>
-                    <td *ngFor="let item of packet.packet.dataUint32">
+                    <td *ngFor="let item of packet.packet.dataUint32" [ngClass]="{ 'highlight': shouldHighlightCell(item) }">
                         {{ item }}
                     </td>
                 </tr>
                 <tr>
                     <td class="row-name">Int16</td>
-                    <td *ngFor="let item of packet.packet.dataInt16">
+                    <td *ngFor="let item of packet.packet.dataInt16" [ngClass]="{ 'highlight': shouldHighlightCell(item) }">
                         {{ item }}
                     </td>
                 </tr>
                 <tr>
                     <td class="row-name">Int32</td>
-                    <td *ngFor="let item of packet.packet.dataInt32">
+                    <td *ngFor="let item of packet.packet.dataInt32" [ngClass]="{ 'highlight': shouldHighlightCell(item) }">
                         {{ item }}
                     </td>
                 </tr>

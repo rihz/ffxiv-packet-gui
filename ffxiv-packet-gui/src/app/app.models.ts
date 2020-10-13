@@ -22,3 +22,21 @@ export class ReceivedPacket {
     id: number = 0;
     packet: RawPacket = new RawPacket();
 }
+
+export class SearchResultPacket extends ReceivedPacket {
+    resultLocations: SearchResultLocation[];
+}
+
+export class SearchResultLocation {
+    arrayType: SearchResultArrayType;
+    index: number;
+}
+
+export enum SearchResultArrayType {
+    Uint16,
+    Uin32,
+    Int8,
+    Int16,
+    Int32,
+    String
+};

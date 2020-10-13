@@ -10,3 +10,19 @@ body {
 .card-header .mat-content {
     justify-content: space-around;
 }
+
+.field.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white !important;
+}
+
+.field.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white !important;
+}
+
+.field.mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+    color: white !important;
+}
+
+.field .mat-form-field-wrapper {
+    padding: 0 !important;
+}

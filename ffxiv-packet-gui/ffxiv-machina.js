@@ -65,7 +65,7 @@ module.exports.addFirewallRule = addFirewallRule;
 
 module.exports.start = function(win, config, verbose, winpcap, pid) {
     let id = 1;
-
+    console.log('started');
     isElevated().then(elevated => {
 
         if(elevated) {

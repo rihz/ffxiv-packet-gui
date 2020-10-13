@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const machina = require('./ffxiv-machina');
 app.commandLine.appendSwitch('disable-renderer-backgrounding');
@@ -16,7 +16,7 @@ function createWindow() {
         height: 900,
         backgroundColor: '#ffffff',
         frame: true,
-        title: 'FFXIV Packet GUI',
+        title: 'FFXIV Packet GUI', 
         webPreferences: {
             nodeIntegration: true
         }
@@ -36,7 +36,7 @@ function createWindow() {
 
     win.on('close', (event) => {
         machina.stop();
-    })
+    });
 }
 
 app.on('ready', createWindow);

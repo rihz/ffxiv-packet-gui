@@ -9,6 +9,7 @@ import { AddPacket } from 'src/reducers/packet.reducer';
 })
 export class PacketCardComponent implements OnInit {
   @Input() packet: ReceivedPacket;
+  @Input() toHighlight: string = '';
 
   get dataChar() : string[] {
     return this.packet.packet.dataString.split("");
@@ -24,6 +25,12 @@ export class PacketCardComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  shouldHighlightCell(item: string) {
+    return this.toHighlight !== ''
+      ? item == this.toHighlight
+      : false;
   }
 
 }

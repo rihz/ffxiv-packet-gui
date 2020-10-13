@@ -1,0 +1,23 @@
+.control {
+    color: white !important;
+}
+
+.controls {
+    background-color: #333;
+    z-index: 1;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.field {
+    color: white !important;
+}
+
+.label {
+    color: white;
+}

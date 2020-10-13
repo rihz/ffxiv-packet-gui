@@ -1,7 +1,31 @@
 <div class="container">
-    <h3>Received Packets</h3>
-    <mat-accordion class="accordion" multi>
-        <app-packet-card *ngFor="let packet of receivedPackets$ | async" [packet]="packet"></app-packet-card>
+    <mat-card class="controls">
+        <mat-slide-toggle class="control" labelPosition="before" [checked]="!isPaused"
+            (change)="handleCaptureChange($event)">Capture Packets</mat-slide-toggle>
+        <mat-form-field appearance="outline" color="accent" class="field">
+            <mat-label class="label">Search</mat-label>
+            <input matInput class="search input" (keyup)="search($event.target.value)" />
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </mat-card>
+    <mat-accordion class="parent-accordion" multi>
+        <mat-expansion-panel expanded *ngIf="searchQuery !== ''">
+            <mat-expansion-panel-header>
+                Search Results
+            </mat-expansion-panel-header>
+            <img *ngIf="isLoading" src="assets/loading.gif" />
+            <mat-accordion class="accordion" multi>
+                <app-packet-card [toHighlight]="searchQuery" *ngFor="let packet of searchResults" [packet]="packet"></app-packet-card>
+            </mat-accordion>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="showReceived" class="parent-panel">
+            <mat-expansion-panel-header class="parent-panel-header">
+                Received Packets
+            </mat-expansion-panel-header>
+            <mat-accordion class="accordion" multi>
+                <app-packet-card *ngFor="let packet of receivedPackets$ | async" [packet]="packet"></app-packet-card>
+            </mat-accordion>
+        </mat-expansion-panel>
     </mat-accordion>
     <br />
     <!-- <h3>Sent Packets</h3>
